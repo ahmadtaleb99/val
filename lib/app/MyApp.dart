@@ -48,10 +48,8 @@ class _MyAppState extends State<MyApp> {
             },
             child: MaterialApp(
               navigatorKey: _navigatorKey,
-              builder: (context, child) {
-                return WelcomeScreen();
-              },
-              initialRoute: Routes.splashRoute,
+
+              initialRoute: Routes.welcomeRoute,
               debugShowCheckedModeBanner: false,
               onGenerateRoute: RouteGenerator.getRoute,
               theme: getApplicationTheme(),

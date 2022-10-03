@@ -43,6 +43,7 @@ dependencies:
   flutter_screenutil: ^5.5.3+2
   percent_indicator: ^4.2.2
   google_maps_flutter: ^2.2.1
+  circular_reveal_animation: ^2.0.1
 
 dev_dependencies:
   flutter_test:
