@@ -41,7 +41,7 @@ class AppStrings{
   static const String onboardingSubTitle2 ='on_boarding_desc2';
   static const String onboardingSubTitle3 ='on_boarding_desc3';
   static const String onboardingSubTitle4 ='on_boarding_desc4';
-  static const String login ='login_button';
+  static const String login ='Login';
   static const String addRecord = 'Add Record';
   static const String editRecord = 'Edit Record';
   static const String downloading ='Downloading';
@@ -88,9 +88,20 @@ class AppStrings{
   static const String settings = "settings";
   static const String field = "Field";
   static const String value = "value";
+  static const String cate = "value";
+
+
+  static const String categories = 'Categories';
+  static const String stores = 'Stores';
+  static const String interests = 'interests';
+  static const String addOffer = 'Add Offer';
+  static const String history = 'History';
+  static const String chats = 'Chats';
+  static const String myOffers = 'My Offers';
+  static const String aboutUs = 'About Us';
+
 
   static const String services = "services";
-  static const String stores = "stores";
   static const String about = "about";
   static const String mustBeAValidEmail = "Must be a valid email address.";
   static const String banners = "Banners";

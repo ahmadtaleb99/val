@@ -12,6 +12,20 @@ class ImageAssets{
 
   static const String flexLogo = '$_imageBase/flex_logo.png';
   static const String logo = '$_imageBase/logo.png';
+  static const String profile = '$_imageBase/profile.png';
+
+
+  static const String home = '$_imageBase/home.svg';
+  static const String categories = '$_imageBase/categories.svg';
+  static const String stores = '$_imageBase/stores.svg';
+  static const String interests = '$_imageBase/interests.svg';
+  static const String addOffer = '$_imageBase/add_offer.svg';
+  static const String history = '$_imageBase/history.svg';
+  static const String chats = '$_imageBase/chats.svg';
+  static const String myOffers = '$_imageBase/my_offers.svg';
+  static const String settings = '$_imageBase/settings.svg';
+  static const String aboutUs = '$_imageBase/about.svg';
+  static const String login = '$_imageBase/login.svg';
 
 
 

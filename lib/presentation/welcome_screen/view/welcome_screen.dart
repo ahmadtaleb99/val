@@ -9,6 +9,44 @@ import 'package:val/presentation/resources/values_manager.dart';
 import 'package:val/presentation/welcome_screen/view/widgets/choose_Interest_widget.dart';
 import 'package:val/presentation/welcome_screen/view/widgets/choose_location_widget.dart';
 import 'package:val/presentation/welcome_screen/view/widgets/skip_button.dart';
+import 'dart:ui' as ui;
+
+
+//Copy this CustomPainter code to the Bottom of the File
+class RPSCustomPainter extends CustomPainter{
+
+  @override
+  void paint(Canvas canvas, Size size) {
+
+
+
+    Paint paint0 = Paint()
+      ..color = ColorManager.primary
+      ..style = PaintingStyle.fill
+      ..strokeWidth = 1.0;
+
+
+    Path path0 = Path();
+    path0.moveTo(size.width*0.9939071,size.height*0.0049467);
+    path0.quadraticBezierTo(size.width*0.2495355,size.height*0.0049467,size.width*0.0006831,size.height*0.0049467);
+    path0.quadraticBezierTo(size.width*0.0077596,size.height*0.6420000,size.width*0.0102459,size.height*0.8555467);
+    path0.quadraticBezierTo(size.width*0.6178689,size.height*0.9071467,size.width*0.9939071,size.height*0.7675467);
+    path0.quadraticBezierTo(size.width*0.9948087,size.height*0.5770400,size.width*0.9939071,size.height*0.0049467);
+    path0.close();
+
+    canvas.drawPath(path0, paint0);
+
+
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
+    return false;
+  }
+
+}
+
+
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({Key? key}) : super(key: key);
@@ -26,28 +64,37 @@ class WelcomeScreen extends StatelessWidget {
         }
       ),
       body: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.all(AppPadding.p37.w),
-          child: Column(
-            children: [
-              SizedBox(height: 98.h,),
-              Image.asset(ImageAssets.logo),
-              SizedBox(height: 72.h,),
-              Text(AppStrings.welcomeMSg,style: Theme.of(context).textTheme.titleMedium,),
-              SizedBox(height: 10.h,),
-              Text(AppStrings.welcomeSelectHelperMsg,style: Theme.of(context).textTheme.bodyMedium,),
-              SizedBox(height: 53.h,),
-              const ChooseLocationWidget(),
-              SizedBox(height: 25.h,),
-             const  ChooseInterestWidget(),
-              SizedBox(height: 135.h,),
-              CustomButtonWidget(onPressed: (){},color: ColorManager.secondary, text:  AppStrings.confirm,),
-              SizedBox(height: 25.h,),
-              SkipButton()
+        child: Column(
+          children: [
 
 
-            ],
-          ),
+            Padding(
+              padding: EdgeInsets.all(AppPadding.p37.w),
+              child: Column(
+
+                children: [
+
+
+                  SizedBox(height: 98.h,),
+                  Image.asset(ImageAssets.logo),
+                  SizedBox(height: 72.h,),
+                  Text(AppStrings.welcomeMSg,style: Theme.of(context).textTheme.titleMedium,),
+                  SizedBox(height: 10.h,),
+                  Text(AppStrings.welcomeSelectHelperMsg,style: Theme.of(context).textTheme.bodyMedium,),
+                  SizedBox(height: 53.h,),
+                  const ChooseLocationWidget(),
+                  SizedBox(height: 25.h,),
+                 const  ChooseInterestWidget(),
+                  SizedBox(height: 135.h,),
+                  CustomButtonWidget(onPressed: (){},color: ColorManager.secondary, text:  AppStrings.confirm,),
+                  SizedBox(height: 25.h,),
+                  SkipButton()
+
+
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );

@@ -20,6 +20,8 @@ ThemeData getApplicationTheme() {
     //default font
     fontFamily: FontConstants.fontFamily,
 
+
+
     // cardview theme
 
     cardTheme: CardTheme(
@@ -34,6 +36,17 @@ ThemeData getApplicationTheme() {
         shadowColor: ColorManager.lightPrimary,
         titleTextStyle:
             getRegularStyle(fontSize: FontSize.s20, color: ColorManager.white)),
+
+
+    //divider
+    dividerTheme: DividerThemeData(
+      color: ColorManager.black,
+      thickness: 1,
+
+    ),
+
+
+
 
     //button  theme
     buttonTheme: ButtonThemeData(
