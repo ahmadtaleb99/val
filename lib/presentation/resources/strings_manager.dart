@@ -59,6 +59,8 @@ class AppStrings{
   static const String addNewRecord ='Add new record';
   static const String username ='username_hint';
   static const String password ='password_hint';
+  static const String welcomeMsg ='Welcome To App';
+  static const String buyStuff ='Buy and sell stuff';
 
   static const String retryAgain = "Retry again";
   static const String ok = "ok";

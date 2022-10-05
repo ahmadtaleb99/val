@@ -15,6 +15,11 @@ class ImageAssets{
   static const String profile = '$_imageBase/profile.png';
 
 
+  static const String searchIcon  = '$_imageBase/search_icon.svg';
+  static const String backIcon  = '$_imageBase/back_icon.svg';
+
+
+  static const String drawerIcon = '$_imageBase/drawer_icon.svg';
   static const String home = '$_imageBase/home.svg';
   static const String categories = '$_imageBase/categories.svg';
   static const String stores = '$_imageBase/stores.svg';

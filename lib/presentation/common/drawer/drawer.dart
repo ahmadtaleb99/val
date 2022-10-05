@@ -27,9 +27,7 @@ class _AppDrawerState extends State<AppDrawer>
     @override
   void dispose() {
 
-      animationController.reverse();
       animationController.dispose();
-
       super.dispose();
     }
   @override
@@ -37,7 +35,7 @@ class _AppDrawerState extends State<AppDrawer>
     super.initState();
     animationController = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 1000),
+      duration: Duration(milliseconds: 400),
     );
     animation = CurvedAnimation(
       parent: animationController,
@@ -51,59 +49,66 @@ class _AppDrawerState extends State<AppDrawer>
   Widget build(BuildContext context) {
     return
       CircularRevealAnimation(
-        centerAlignment: Alignment.topLeft,
         animation: animation,
+        centerOffset: Offset(25.w,55.h),
+
         child: SizedBox(
 
-          child: Stack(
-            children: [
-              CustomPaint(
+          child: GestureDetector(
+            onHorizontalDragUpdate: (details) async {
+              await animationController.reverse();
+              Scaffold.of(context).closeDrawer();
+            },
+            child: Stack(
+              children: [
+                CustomPaint(
 
-                painter: RPSCustomPainter(),
-                size: Size(422,(422*1.8710280373831774).toDouble()),
-                child: Container(
-                ),
-              ),
-              Column(
-                children: [
-                  SizedBox(height: 10.h,),
-                  const DrawerProfileWidget(),
-                  SizedBox(height: 16.h,),
-                  Padding(
-                    padding:  EdgeInsets.symmetric(horizontal: 36.w),
-                    child: const Divider(),
+                  painter: RPSCustomPainter(),
+                  size: Size(422,(422*1.8710280373831774).toDouble()),
+                  child: Container(
                   ),
-                  Column(
-                    children: [
-                      DrawerItem(icon: SvgPicture.asset(ImageAssets.home), title: AppStrings.home,onTap: (){
-                      },),
-                      DrawerItem(icon: SvgPicture.asset(ImageAssets.categories,width: 100,height: 124), title: AppStrings.categories,onTap: (){
-                      },),
-                      DrawerItem(icon: SvgPicture.asset(ImageAssets.stores), title: AppStrings.stores,onTap: (){
-                      },),
-                      DrawerItem(icon: SvgPicture.asset(ImageAssets.interests), title: AppStrings.interests,onTap: (){
-                      },),
-                      DrawerItem(icon: SvgPicture.asset(ImageAssets.addOffer), title: AppStrings.addOffer,onTap: (){
-                      },),
-                      DrawerItem(icon: SvgPicture.asset(ImageAssets.history), title: AppStrings.history,onTap: (){
-                      },),
-                      DrawerItem(icon: SvgPicture.asset(ImageAssets.chats), title: AppStrings.chats,onTap: (){
-                      },),
-                      DrawerItem(icon: SvgPicture.asset(ImageAssets.myOffers), title: AppStrings.myOffers,onTap: (){
-                      },),
-                      DrawerItem(icon: SvgPicture.asset(ImageAssets.settings), title: AppStrings.settings,onTap: (){
-                      },),
-                      DrawerItem(icon: SvgPicture.asset(ImageAssets.aboutUs), title: AppStrings.aboutUs,onTap: (){
-                      },),
-                      DrawerItem(icon: SvgPicture.asset(ImageAssets.login), title: AppStrings.login,onTap: (){
-                      },),
-                    ],
-                  )
+                ),
+                Column(
+                  children: [
+                    SizedBox(height: 10.h,),
+                    const DrawerProfileWidget(),
+                    SizedBox(height: 16.h,),
+                    Padding(
+                      padding:  EdgeInsets.symmetric(horizontal: 36.w),
+                      child: const Divider(),
+                    ),
+                    Column(
+                      children: [
+                        DrawerItem(icon: SvgPicture.asset(ImageAssets.home), title: AppStrings.home,onTap: (){
+                        },),
+                        DrawerItem(icon: SvgPicture.asset('assets/images/categories.svg'), title: AppStrings.categories,onTap: (){
+                        },),
+                        DrawerItem(icon: SvgPicture.asset(ImageAssets.stores), title: AppStrings.stores,onTap: (){
+                        },),
+                        DrawerItem(icon: SvgPicture.asset(ImageAssets.interests), title: AppStrings.interests,onTap: (){
+                        },),
+                        DrawerItem(icon: SvgPicture.asset(ImageAssets.addOffer), title: AppStrings.addOffer,onTap: (){
+                        },),
+                        DrawerItem(icon: SvgPicture.asset(ImageAssets.history), title: AppStrings.history,onTap: (){
+                        },),
+                        DrawerItem(icon: SvgPicture.asset(ImageAssets.chats), title: AppStrings.chats,onTap: (){
+                        },),
+                        DrawerItem(icon: SvgPicture.asset(ImageAssets.myOffers), title: AppStrings.myOffers,onTap: (){
+                        },),
+                        DrawerItem(icon: SvgPicture.asset(ImageAssets.settings), title: AppStrings.settings,onTap: (){
+                        },),
+                        DrawerItem(icon: SvgPicture.asset(ImageAssets.aboutUs), title: AppStrings.aboutUs,onTap: (){
+                        },),
+                        DrawerItem(icon: SvgPicture.asset(ImageAssets.login), title: AppStrings.login,onTap: (){
+                        },),
+                      ],
+                    )
 
 
-                ],
-              )
-            ],
+                  ],
+                )
+              ],
+            ),
           ),
         ),
       );

@@ -31,8 +31,8 @@ ThemeData getApplicationTheme() {
     //app bar
     appBarTheme: AppBarTheme(
         centerTitle: true,
-        color: ColorManager.primary,
-        elevation: AppSize.s4,
+        color: ColorManager.white ,
+        elevation: 0,
         shadowColor: ColorManager.lightPrimary,
         titleTextStyle:
             getRegularStyle(fontSize: FontSize.s20, color: ColorManager.white)),
@@ -80,6 +80,7 @@ ThemeData getApplicationTheme() {
 
       bodyLarge: getMediumStyle(color: ColorManager.black, fontSize: FontSize.s18),
       bodyMedium: getMediumStyle(color: ColorManager.black, fontSize: FontSize.s16),
+      bodySmall: getLightStyle(color:  ColorManager.black,)
 
 
     ),

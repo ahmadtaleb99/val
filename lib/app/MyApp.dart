@@ -49,7 +49,7 @@ class _MyAppState extends State<MyApp> {
             child: MaterialApp(
               navigatorKey: _navigatorKey,
 
-              initialRoute: Routes.welcomeRoute,
+              initialRoute: Routes.homeRoute,
               debugShowCheckedModeBanner: false,
               onGenerateRoute: RouteGenerator.getRoute,
               theme: getApplicationTheme(),

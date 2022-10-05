@@ -9,7 +9,6 @@ class CustomShadowBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 60.h,
       decoration: BoxDecoration(
         color: ColorManager.white,
         borderRadius: BorderRadius.all(
@@ -19,8 +18,8 @@ class CustomShadowBox extends StatelessWidget {
           BoxShadow(
               color: ColorManager.hintColor,
               blurRadius: AppRadius.r6,
-              offset: Offset(0, 3),
-              spreadRadius: -3.5),
+              offset: Offset(0, 1),
+              spreadRadius: -3),
         ],
       ),
       child: child,

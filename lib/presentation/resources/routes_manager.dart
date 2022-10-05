@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:val/presentation/home/view/home_screen.dart';
 import 'package:val/presentation/resources/strings_manager.dart';
 import 'package:val/presentation/welcome_screen/view/welcome_screen.dart';
 
@@ -16,13 +17,9 @@ class Routes {
 class RouteGenerator {
   static Route<dynamic>? getRoute(RouteSettings settings) {
     switch (settings.name) {
-      // case Routes.homeRoute:
-      //   initFormModule();
-      //   return MaterialPageRoute(
-      //       builder: (_) =>  MultiBlocProvider(providers: [
-      //         BlocProvider(create: (context) =>  FormsBloc(getIt<AssignedFormRepository>())
-      //           ..add(FormsPageRequested())),
-      //       ], child: const HomeScreen()));
+      case Routes.homeRoute:
+        return MaterialPageRoute(
+            builder: (_) => const HomeScreen());
       //
       // case Routes.loginRoute:
       //   return MaterialPageRoute(
