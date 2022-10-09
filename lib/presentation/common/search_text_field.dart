@@ -17,16 +17,15 @@ class SearchTextField extends StatelessWidget {
         height: 40.h,
         child: TextField(
           decoration: InputDecoration(
-            suffix: Padding(
-              padding:  EdgeInsets.only(right: 8.0.w,top: 20.0.h),
-              child: SvgPicture.asset(ImageAssets.searchIcon,clipBehavior: Clip.antiAlias,height: 17,width: 20,),
+
+              suffixIcon: Padding(
+
+              padding:  EdgeInsets.only(right: 8.0.w,top: 10.0.h,bottom: 12.h),
+              child: SvgPicture.asset(ImageAssets.searchIcon,clipBehavior: Clip.antiAlias,height: 30.h,width: 20,),
             ),
-              suffixIconConstraints: BoxConstraints(
-                  minHeight: 20.h,
-                  minWidth: 24.w
-              ),
+
               isDense: true,                      // Added this
-              contentPadding: const  EdgeInsets.all(AppPadding.p12),  // Added this
+              contentPadding: const  EdgeInsets.all(AppPadding.p8),  // Added this
 
             hintText: AppStrings.search
           ),

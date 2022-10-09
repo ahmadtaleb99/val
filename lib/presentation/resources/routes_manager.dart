@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:val/presentation/home/view/home_screen.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:val/presentation/main/cubit/main_cubit.dart';
+import 'package:val/presentation/main/main_screen.dart';
+import 'package:val/presentation/main/pages/home/view/home_page.dart';
 import 'package:val/presentation/resources/strings_manager.dart';
 import 'package:val/presentation/welcome_screen/view/welcome_screen.dart';
 
 class Routes {
-  static const String homeRoute = "/home";
+  static const String mainRoute = "/main";
   static const String splashRoute = "/splash";
   static const String welcomeRoute = "/welcome";
   static const String submissionsRoute = "/submissions";
@@ -17,9 +20,10 @@ class Routes {
 class RouteGenerator {
   static Route<dynamic>? getRoute(RouteSettings settings) {
     switch (settings.name) {
-      case Routes.homeRoute:
+      case Routes.mainRoute:
         return MaterialPageRoute(
-            builder: (_) => const HomeScreen());
+            builder: (_) => BlocProvider(
+                create: (context) => MainCubit(), child: const MainScreen()));
       //
       // case Routes.loginRoute:
       //   return MaterialPageRoute(

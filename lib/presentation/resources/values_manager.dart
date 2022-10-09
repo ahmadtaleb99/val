@@ -9,6 +9,7 @@ class AppMargin {
 }
 
 class AppRadius {
+  static const double r4 = 4.0;
   static const double r6 = 6.0;
   static const double r10 = 18.0;
   static const double r12 = 12.0;

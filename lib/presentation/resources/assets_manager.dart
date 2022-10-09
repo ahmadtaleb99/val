@@ -17,6 +17,7 @@ class ImageAssets{
 
   static const String searchIcon  = '$_imageBase/search_icon.svg';
   static const String backIcon  = '$_imageBase/back_icon.svg';
+  static const String addIcon  = '$_imageBase/add_icon.svg';
 
 
   static const String drawerIcon = '$_imageBase/drawer_icon.svg';
@@ -31,6 +32,12 @@ class ImageAssets{
   static const String settings = '$_imageBase/settings.svg';
   static const String aboutUs = '$_imageBase/about.svg';
   static const String login = '$_imageBase/login.svg';
+
+
+  static const String bottomBarHome = '$_imageBase/bottom_bar_home.svg';
+  static const String bottomBarStores = '$_imageBase/bottom_bar_stores.svg';
+  static const String bottomBarHistory = '$_imageBase/bottom_bar_history.svg';
+
 
 
 
