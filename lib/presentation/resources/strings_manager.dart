@@ -67,29 +67,12 @@ class AppStrings{
 
   static const String retryAgain = "Retry again";
   static const String ok = "ok";
-  static const String formSubmittedSuccess = "Form has been submitted successfully.";
-  static const String formUpdatedSuccess = "Form has been updated successfully.";
   static const String loading = "loading";
   static const String skip = "Skip";
-  static const String submitBackWarningMgs = "Some fields have values, if you go back values will be erased";
   static const String resendEmail = "Didn’t recieve email ? Resesnd";
 
   static const String home = "Home";
-  static const String newSubmission = "New Submission";
-  static const String updateSubmission = "Update Submission";
-  static const String submissionDetails = "Submission Details";
-  static const String submissions = "Submissions";
   static const String search = "Search";
-  static const String checkboxGroupHing = "(Checkbox Group)";
-  static const String radioGroupBoxHint = "(Radio Group)";
-  static const String dropdownHint = "(DropDown)";
-  static const String emailHint = "(Email)";
-  static const String fileHint = "(File)";
-  static const String numberHint = "(Number)";
-  static const String starRatingHint = "(Star Rating)";
-  static const String textFieldHint = "(Text Field)";
-  static const String textAreaHint = "(Text Area)";
-  static const String notifications = "Notifications";
   static const String settings = "settings";
   static const String field = "Field";
   static const String value = "value";
@@ -134,7 +117,6 @@ class AppStrings{
   static const String chooseYourInterestsHint = "What Interests You The Most? ";
   static const String file = "file";
   static const String uploadFile = "Upload File";
-  static const String otherDelimiter = "other_";
   static const String mustBeBetween = "Value must be between ";
 
 }

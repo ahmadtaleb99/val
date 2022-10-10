@@ -24,12 +24,13 @@ class AppBottomBar extends StatelessWidget {
             offset: const Offset(3, 3),
             spreadRadius: 1.1,)]),
       child: BottomAppBar(
+
         elevation: 55,
         child: BlocSelector<MainCubit, MainState, int>(
           selector: (state) => state.currentPageIndex,
           builder: (context, state) {
             return Padding(
-              padding:  EdgeInsets.only(top:  11.0.h),
+              padding:  EdgeInsets.only(top:  12.0.h,bottom: 4.h),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -58,7 +59,6 @@ class AppBottomBar extends StatelessWidget {
                             ),
                             ),
                           )),
-
 
                   Spacer(),
                   if (items.length > 3)

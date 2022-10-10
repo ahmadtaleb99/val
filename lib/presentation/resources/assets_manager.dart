@@ -40,6 +40,7 @@ class ImageAssets{
 
 
 
+  static const String detailsArrow = '$_imageBase/details_arrow.svg';
 
 
 }

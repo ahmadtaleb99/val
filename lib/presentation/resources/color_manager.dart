@@ -21,4 +21,10 @@ class ColorManager {
   static Color grey2 = const Color(0xff797979);
   static Color white = const Color(0xffFFFFFF);
   static Color error = const Color(0xffe61f34);
+
+
+   static const storyGradient =  LinearGradient(
+  begin: Alignment.topLeft,
+  end: Alignment.bottomRight,
+  colors: [Color(0xffDDDDDD), Color(0xffF5F5F5),Color(0xffCCCCCC)]);
 }

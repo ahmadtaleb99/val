@@ -4,6 +4,7 @@ import 'package:val/presentation/main/cubit/main_cubit.dart';
 import 'package:val/presentation/main/main_screen.dart';
 import 'package:val/presentation/main/pages/home/view/home_page.dart';
 import 'package:val/presentation/resources/strings_manager.dart';
+import 'package:val/presentation/story/bloc/story_bloc.dart';
 import 'package:val/presentation/welcome_screen/view/welcome_screen.dart';
 
 class Routes {
@@ -22,17 +23,22 @@ class RouteGenerator {
     switch (settings.name) {
       case Routes.mainRoute:
         return MaterialPageRoute(
-            builder: (_) => BlocProvider(
-                create: (context) => MainCubit(), child: const MainScreen()));
+            builder: (_) => MultiBlocProvider(providers: [
+                  BlocProvider(
+                    create: (context) => MainCubit(),
+                  ),
+              BlocProvider(
+                    create: (context) => StoryBloc()..add(StoriesRequested()),
+                  ),
+                ], child: const MainScreen()));
       //
       // case Routes.loginRoute:
       //   return MaterialPageRoute(
       //       builder: (_) => BlocProvider(
       //           create: (context) => LoginBloc(), child: const LoginScreen()));
 
-        case Routes.welcomeRoute:
-        return MaterialPageRoute(
-            builder: (_) => const WelcomeScreen());
+      case Routes.welcomeRoute:
+        return MaterialPageRoute(builder: (_) => const WelcomeScreen());
 
       default:
         return null;

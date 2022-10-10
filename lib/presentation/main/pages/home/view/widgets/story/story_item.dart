@@ -6,37 +6,44 @@ import 'package:val/presentation/resources/color_manager.dart';
 class StoryItem extends StatelessWidget {
   final String image;
   final Color color;
-
-  const StoryItem({Key? key, required this.image, required this.color})
-      : super(key: key);
+  final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Container(
-          width: 72.w,
-          height: 72.h,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: color,
-            border: Border.all(color: color, width: 1),
-          ),
-          child: Center(
-            child: Container(
-              width: 70.w,
-              height: 70.h,
-              alignment: Alignment.center, // where to position the child
-              decoration: BoxDecoration(
-                  shape: BoxShape.circle,
+    return InkWell(
+      onTap: onTap,
+      child: Stack(
+        children: [
+          Container(
+            width: 72.w,
+            height: 72.h,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: color,
+              border: Border.all(color: color, width: 1),
+            ),
+            child: Center(
+              child: Container(
+                width: 70.w,
+                height: 70.h,
+                alignment: Alignment.center, // where to position the child
+                decoration: BoxDecoration(
+                    shape: BoxShape.circle,
 
-                  color: Colors.red,
-                  border: Border.all(color: ColorManager.white, width: 2),
-                  image: DecorationImage(image: AssetImage(image))),
+                    color: Colors.red,
+                    border: Border.all(color: ColorManager.white, width: 2),
+                    image: DecorationImage(image: AssetImage(image))),
+              ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
+
+  const StoryItem({
+    required this.image,
+    required this.color,
+    this.onTap,
+  });
 }
