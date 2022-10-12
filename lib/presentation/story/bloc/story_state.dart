@@ -17,22 +17,34 @@ class StoryLoading extends StoryState {
 class StoryLoaded  extends StoryState  {
 
   final List<StoryMock> stories;
-  final int currentStory;
+  final int currentStoryIndex;
+  final int currentImageInStory;
+  final bool isLastImage;
+  final bool storiesEnded;
   @override
-  List<Object> get props => [stories];
+  List<Object> get props => [stories,currentStoryIndex,currentImageInStory,storiesEnded];
 
   const StoryLoaded({
     required this.stories,
-    required this.currentStory,
+    required this.currentStoryIndex,
+    required this.isLastImage,
+    required this.currentImageInStory,
+    required this.storiesEnded,
   });
 
   StoryLoaded copyWith({
     List<StoryMock>? stories,
-    int? currentStory,
+    int? currentStoryIndex,
+    int? currentImageInStory,
+    bool? isLastImage,
+    bool? storiesEnded,
   }) {
     return StoryLoaded(
       stories: stories ?? this.stories,
-      currentStory: currentStory ?? this.currentStory,
+      currentStoryIndex: currentStoryIndex ?? this.currentStoryIndex,
+      currentImageInStory: currentImageInStory ?? this.currentImageInStory,
+      isLastImage: isLastImage ?? this.isLastImage,
+      storiesEnded: storiesEnded ?? this.storiesEnded,
     );
   }
 }

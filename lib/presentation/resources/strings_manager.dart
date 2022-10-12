@@ -45,6 +45,7 @@ class AppStrings{
   static const String onboardingSubTitle3 ='on_boarding_desc3';
   static const String onboardingSubTitle4 ='on_boarding_desc4';
   static const String login ='Login';
+  static const String moreDetails ='More Details';
   static const String addRecord = 'Add Record';
   static const String editRecord = 'Edit Record';
   static const String downloading ='Downloading';

@@ -6,10 +6,21 @@ abstract class StoryEvent extends Equatable {
 
 
 class StoriesRequested extends StoryEvent {
+
   @override
   List<Object?> get props => [];
 
 }
+
+
+
+class NextImageRequested extends StoryEvent {
+  @override
+  List<Object?> get props => [];
+
+  const NextImageRequested();
+}
+
 
 
 class StoryOpened extends StoryEvent {

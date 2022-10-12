@@ -41,6 +41,7 @@ class ImageAssets{
 
 
   static const String detailsArrow = '$_imageBase/details_arrow.svg';
+  static const String closeIcon = '$_imageBase/close_icon.svg';
 
 
 }
