@@ -69,6 +69,7 @@ class _StoryGalleryScreenState extends State<StoryGalleryScreen> {
   double _moreDetailsOriginalPosition = 35.h;
   double _moreDetailsPosition = 35.h;
   double _moreDetailsOpacity = 1.0;
+  bool _isDismissibleEnabled = true;
   late final _pageController;
   static dynamic currentPageValue = 0.0;
 
@@ -108,8 +109,9 @@ class _StoryGalleryScreenState extends State<StoryGalleryScreen> {
       // onVerticalDragUpdate: _moreDetailsSwipeUpHandler,
       // onVerticalDragEnd: _moreDetailsSwipeEnd,
       child: Dismissible(
+
         resizeDuration: const Duration(milliseconds: 50),
-        direction: DismissDirection.down,
+        direction: _isDismissibleEnabled ?  DismissDirection.down : DismissDirection.none ,
 
         key: const Key('store_screen'),
         onDismissed: (_) => Navigator.of(context).pop(),
@@ -120,8 +122,10 @@ class _StoryGalleryScreenState extends State<StoryGalleryScreen> {
             body: BlocListener<StoryBloc, StoryState>(
               listener: (context, state) {
                 if (state is StoryLoaded) {
-                  if (state.isLastImage)
-                    _pageController.animateToPage(state.currentStoryIndex,
+                  if (state.transitionRequired)
+                    _pageController.jumpToPage(state.currentStoryIndex);
+
+                  _pageController.animateToPage(state.currentStoryIndex,
                         duration: const Duration(
                             milliseconds: AppConstants.storyTransitionDelayMs),
                         curve: Curves.easeIn);
@@ -161,7 +165,6 @@ class _StoryGalleryScreenState extends State<StoryGalleryScreen> {
                                 ),
                               );
                             } else {
-                              print(currentPageValue);
 
                               return StoryPage(
                                 storyIndex: index,
@@ -191,37 +194,45 @@ class _StoryGalleryScreenState extends State<StoryGalleryScreen> {
     int sensitivity = -2;
     //swipe down
     double newPosition = max(0, _moreDetailsPosition - (details.delta.dy));
-    print(details.localPosition.dy.toString()+'new');
 
     if (details.delta.dy > sensitivity  ) {
       if(details.localPosition.dy   > 500 )
 
       {
-        print('akbr');
         if (!(newPosition < _moreDetailsOriginalPosition))
           setState(() {
             _moreDetailsPosition = newPosition;
-            _moreDetailsOpacity = ((details.globalPosition.dy) / 1000);
+            // _moreDetailsOpacity = ((details.globalPosition.dy) / 1000) ;
           });
       }
 
       //swipe up
     } else if (details.delta.dy < -sensitivity) {
 
-      if(details.globalPosition.dy   > screenHeight - (screenHeight / 9))
+      if(details.globalPosition.dy   > screenHeight - (screenHeight / 5))
         setState(() {
+
+          final min =  (screenHeight -  screenHeight / 5);
+          dynamic OldRange = screenHeight - _moreDetailsOriginalPosition  - min;
+          final      NewRange = 0.9 - 0.0 ;
+          final   NewValue = (((((details.globalPosition.dy) - min) * NewRange) / OldRange) + 0.0).abs();
+          _isDismissibleEnabled = false;
         _moreDetailsPosition =
             max(0, _moreDetailsPosition - (details.delta.dy));
 
-        _moreDetailsOpacity = ((details.globalPosition.dy) / 1000);
+                print('$NewValue   new --- ${details.globalPosition.dy}  postionso');
+        _moreDetailsOpacity = NewValue;
       });
     }
   }
+
+
 
   _moreDetailsSwipeEnd(DragEndDetails details) {
     setState(() {
       _moreDetailsPosition = 35.h;
       _moreDetailsOpacity = 1.0;
+      _isDismissibleEnabled = true;
     });
   }
 }

@@ -60,6 +60,7 @@ class _StoryPageState extends State<StoryPage>   with SingleTickerProviderStateM
     return BlocConsumer<StoryBloc, StoryState>(
       listener: (context,state){
         if(state is StoryLoaded) {
+          if(state.transitionRequired)
           _pageController.jumpToPage(state.currentImageInStory);
         }
       },
@@ -76,8 +77,17 @@ class _StoryPageState extends State<StoryPage>   with SingleTickerProviderStateM
             final dx = details.globalPosition.dx;
             final dy = details.globalPosition.dy;
             print(dx);
+
+            //next
             if (dx > 2.6 * (screenWidth / 3) && dy > (screenHeight / 4)) {
               context.read<StoryBloc>().add(const NextImageRequested());
+              _animController.reset();
+              _animController.forward();
+            }
+
+            //previous
+            else  if (dx < 0.4 * (screenWidth / 3) && dy > (screenHeight / 4)) {
+              context.read<StoryBloc>().add(const PreviousImageRequested());
               _animController.reset();
               _animController.forward();
             }

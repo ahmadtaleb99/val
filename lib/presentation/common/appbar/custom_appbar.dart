@@ -11,6 +11,7 @@ class CustomAppBar extends StatelessWidget  implements PreferredSizeWidget{
   Widget build(BuildContext context) {
     return AppBar(
       titleSpacing: 0,
+      backgroundColor: Colors.transparent,
       leading: IconButton(
 
         icon: SvgPicture.asset(ImageAssets.drawerIcon,width: 20.w,height: 20.h,),

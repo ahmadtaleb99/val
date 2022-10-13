@@ -50,7 +50,7 @@ class HomePage extends StatelessWidget {
             SizedBox(
               height: 10.h,
             ),
-            const BuildBannerItems(items: [
+             BuildBannerItems(items: [
               BannerItem(image: 'assets/images/img.png')
             ],),
             SizedBox(

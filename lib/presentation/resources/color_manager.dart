@@ -11,8 +11,8 @@ class ColorManager {
   static Color grey = const Color(0xff707070);
   static Color hintColor = Color(0xffAFACAC);
   static Color warningColor = Color(0xffDD636E);
-  static Color success = Color(0xff32BA7C);
-  static Color darkGrey = const Color(0xff525252);
+
+  static Color success = Color(0xff32BA7C);static Color darkGrey = const Color(0xff525252);
   static Color lightGrey = const Color(0xff9E9E9E);
   static Color black = const Color(0xff000000);
 

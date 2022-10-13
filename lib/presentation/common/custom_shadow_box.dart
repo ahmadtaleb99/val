@@ -11,7 +11,7 @@ class CustomShadowBox extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: ColorManager.white,
-        borderRadius: BorderRadius.all(
+        borderRadius: const BorderRadius.all(
           Radius.circular(AppRadius.r6),
         ),
         boxShadow: [

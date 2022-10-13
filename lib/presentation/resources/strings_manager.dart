@@ -12,6 +12,9 @@ class AppStrings{
   static const String summery ='Summery';
   static const String myInterests ='My Interests';
   static const String specialOffer ='Special Offer';
+  static const String product ='Product';
+  static const String sendReport ='Send Report';
+  static const String tags ='Tags';
   static const String discoverTheOffers  ='Discover The Offers ';
   static const String confirm ='Confirm';
   static const String warning ='Warning';

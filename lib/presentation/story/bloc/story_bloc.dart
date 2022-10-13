@@ -12,6 +12,7 @@ class StoryBloc extends Bloc<StoryEvent, StoryState> {
     on<StoriesRequested>(_onStoriesRequested);
     on<StoryOpened>(_onStoryOpened);
     on<NextImageRequested>(_onNextImageRequested);
+    on<PreviousImageRequested>(_onPreviousImageRequested);
   }
 
   Future<void> _onStoriesRequested(
@@ -36,7 +37,7 @@ class StoryBloc extends Bloc<StoryEvent, StoryState> {
     ],
     currentStoryIndex: 0,
       currentImageInStory: 0,
-      isLastImage: false, storiesEnded: false,
+      transitionRequired: false, storiesEnded: false,
 
     ));
   }
@@ -45,11 +46,15 @@ class StoryBloc extends Bloc<StoryEvent, StoryState> {
       StoryOpened event, Emitter<StoryState> emit) async {
     print('firest');
     final newState = (state as StoryLoaded);
-    emit(newState.copyWith(currentStoryIndex: event.storyIndex,currentImageInStory: 0,isLastImage: false,storiesEnded: false));
+    emit(newState.copyWith(currentStoryIndex: event.storyIndex,currentImageInStory: 0,requiresTransition: true,storiesEnded: false));
   }
 
 
+    _goToStory(int index){
 
+        final newState = state as StoryLoaded;
+      emit(newState.copyWith(currentStoryIndex: index,currentImageInStory: 0,requiresTransition: true));
+    }
   Future<void> _onNextImageRequested(
       NextImageRequested event, Emitter<StoryState> emit) async {
     final newState = (state as StoryLoaded);
@@ -57,10 +62,19 @@ class StoryBloc extends Bloc<StoryEvent, StoryState> {
       if(_isLastStory(newState))
         emit(newState.copyWith(storiesEnded: true));
 
-      else emit(newState.copyWith(isLastImage: true,currentImageInStory: 0,currentStoryIndex:_getNextStoryIndex(newState)));
+      else  add(StoryOpened(storyIndex:newState.currentStoryIndex+1 ));
     } else emit(newState.copyWith(currentImageInStory: newState.currentImageInStory +1 ));
   }
-
+  Future<void> _onPreviousImageRequested(
+      PreviousImageRequested event, Emitter<StoryState> emit) async {
+    final newState = (state as StoryLoaded);
+    if(newState.currentImageInStory == 0 ) {
+      if(newState.currentStoryIndex != 0 ) {
+        add(StoryOpened(storyIndex:newState.currentStoryIndex-1 ));
+      }
+      }
+    else emit(newState.copyWith(currentImageInStory: newState.currentImageInStory -1 ));
+  }
 
   bool _isLastImageInStory(StoryLoaded state) {
     return state.currentImageInStory == state.stories[state.currentStoryIndex].images.length-1;

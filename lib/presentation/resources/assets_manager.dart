@@ -10,6 +10,9 @@ class ImageAssets{
 
 
 
+  static const String offerDetailsBackground  = '$_imageBase/offer_details_background.svg';
+
+
   static const String flexLogo = '$_imageBase/flex_logo.png';
   static const String logo = '$_imageBase/logo.png';
   static const String profile = '$_imageBase/profile.png';
@@ -18,6 +21,9 @@ class ImageAssets{
   static const String searchIcon  = '$_imageBase/search_icon.svg';
   static const String backIcon  = '$_imageBase/back_icon.svg';
   static const String addIcon  = '$_imageBase/add_icon.svg';
+  static const String chatIcon  = '$_imageBase/chat_icon.svg';
+  static const String leftArrowIcon  = '$_imageBase/left_arrow_icon.svg';
+  static const String rightArrowIcon  = '$_imageBase/right_arrow_icon.svg';
 
 
   static const String drawerIcon = '$_imageBase/drawer_icon.svg';

@@ -22,6 +22,12 @@ class NextImageRequested extends StoryEvent {
 }
 
 
+class PreviousImageRequested extends StoryEvent {
+  @override
+  List<Object?> get props => [];
+
+  const PreviousImageRequested();
+}
 
 class StoryOpened extends StoryEvent {
     final int storyIndex;
