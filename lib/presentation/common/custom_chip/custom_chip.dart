@@ -7,7 +7,7 @@ class CustomChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(AppPadding.p6),
+      padding: EdgeInsets.symmetric(vertical : AppPadding.p4,horizontal: AppPadding.p10),
       decoration: BoxDecoration(
         color: ColorManager.chipColor,
         border: Border.all(

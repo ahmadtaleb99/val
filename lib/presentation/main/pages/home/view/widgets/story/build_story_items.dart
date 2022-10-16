@@ -30,33 +30,44 @@ class BuildStoryItems extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return Padding(
                     padding:
-                    const EdgeInsets.symmetric(horizontal: AppPadding.p4),
+                        const EdgeInsets.symmetric(horizontal: AppPadding.p4),
                     child: StoryItem(
                         onTap: () {
-                          showGeneralDialog(
-                            barrierDismissible: false,
-                            barrierColor: Colors.black.withOpacity(0.5),
-                            transitionDuration: Duration(milliseconds: 400),
-                            context: context,
-                            pageBuilder: (_, anim1, anim2) {
-                              final bloc = context.read<StoryBloc>();
-                              bloc.add(StoryOpened(storyIndex: index));
-                              return BlocProvider.value(
-                                value:  bloc,
-                                child: StoryGalleryScreen(),
-                              );
-                            },
-                            transitionBuilder: (context, anim1, anim2, child) {
-                              return SlideTransition(
-
-                                position: Tween(
-                                    begin: Offset(0, 1), end: Offset(0, 0))
-                                    .animate(anim1),
-                                child: child,
-                              );
-                            },
-                          );
-
+                          showModalBottomSheet(
+                              context: context,
+                              isScrollControlled:true,
+                              builder: (_) {
+                                final bloc = context.read<StoryBloc>();
+                                bloc.add(StoryOpened(storyIndex: index));
+                                return BlocProvider.value(
+                                  value: bloc,
+                                  child: StoryGalleryScreen(),
+                                );
+                              });
+                          // showGeneralDialog(
+                          //   barrierDismissible: false,
+                          //   barrierColor: Colors.black.withOpacity(0.5),
+                          //   transitionDuration: Duration(milliseconds: 400),
+                          //   context: context,
+                          //   pageBuilder: (_, anim1, anim2) {
+                          //     final bloc = context.read<StoryBloc>();
+                          //     bloc.add(StoryOpened(storyIndex: index));
+                          //     return BlocProvider.value(
+                          //       value:  bloc,
+                          //       child: StoryGalleryScreen(),
+                          //     );
+                          //   },
+                          //   transitionBuilder: (context, anim1, anim2, child) {
+                          //     return SlideTransition(
+                          //
+                          //       position: Tween(
+                          //           begin: Offset(0, 1), end: Offset(0, 0))
+                          //           .animate(anim1),
+                          //       child: child,
+                          //     );
+                          //   },
+                          // );
+                          //
                           // Navigator.push(
                           //     context,
                           //     MaterialPageRoute(

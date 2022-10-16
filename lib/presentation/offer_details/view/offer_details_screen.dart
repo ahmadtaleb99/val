@@ -6,7 +6,7 @@ import 'package:val/presentation/common/buttons/custom_button_widget.dart';
 import 'package:val/presentation/common/drawer/drawer.dart';
 import 'package:val/presentation/offer_details/view/widgets/build_tags_list.dart';
 import 'package:val/presentation/offer_details/view/widgets/chat_icon_widget.dart';
-import 'package:val/presentation/offer_details/view/widgets/product_images_carousel.dart';
+import 'package:val/presentation/offer_details/view/widgets/offer_images_carousel.dart';
 import 'package:val/presentation/resources/assets_manager.dart';
 import 'package:val/presentation/resources/color_manager.dart';
 import 'package:val/presentation/resources/values_manager.dart';
@@ -23,7 +23,7 @@ class OfferDetailsScreen extends StatelessWidget {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: const CustomAppBar(),
-      drawer: AppDrawer(),
+      drawer: const AppDrawer(),
       body: SingleChildScrollView(
         child: Stack(
           alignment: Alignment.topRight,
@@ -50,9 +50,10 @@ class OfferDetailsScreen extends StatelessWidget {
                     clipBehavior: Clip.none,
                     alignment: Alignment.center,
                     children: [
-                      const ProductImagesCarousel(images: [
+                      const OfferImagesCarousel(images: [
                         'assets/images/shoes_image.png',
                         'assets/images/story.png',
+                        'assets/images/img.png',
                       ]),
                       Align(
                         alignment: Alignment.centerLeft,

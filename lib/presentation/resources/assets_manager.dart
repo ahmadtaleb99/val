@@ -5,7 +5,7 @@ class ImageAssets{
 
 
 
-  static const String solidCircle = '$_imageBase/solid_circle_ic.svg';
+  static const String solidCircle = '$_imageBase/solid_circle_icon.svg';
   static const String closedArrow = '$_imageBase/closed_arrow.svg';
 
 
@@ -24,6 +24,8 @@ class ImageAssets{
   static const String chatIcon  = '$_imageBase/chat_icon.svg';
   static const String leftArrowIcon  = '$_imageBase/left_arrow_icon.svg';
   static const String rightArrowIcon  = '$_imageBase/right_arrow_icon.svg';
+  static const String hollowCircleIcon  = '$_imageBase/hollow_circle_icon.svg';
+  static const String solidCircleIcon  = '$_imageBase/solid_circle_icon.svg';
 
 
   static const String drawerIcon = '$_imageBase/drawer_icon.svg';

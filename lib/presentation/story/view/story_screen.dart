@@ -108,79 +108,71 @@ class _StoryGalleryScreenState extends State<StoryGalleryScreen> {
       },
       // onVerticalDragUpdate: _moreDetailsSwipeUpHandler,
       // onVerticalDragEnd: _moreDetailsSwipeEnd,
-      child: Dismissible(
+      child: Container(
+        decoration: const BoxDecoration(gradient: ColorManager.storyGradient),
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
+          body: BlocListener<StoryBloc, StoryState>(
+            listener: (context, state) {
+              if (state is StoryLoaded) {
+                if (state.transitionRequired)
+                  _pageController.jumpToPage(state.currentStoryIndex);
 
-        resizeDuration: const Duration(milliseconds: 50),
-        direction: _isDismissibleEnabled ?  DismissDirection.down : DismissDirection.none ,
+                _pageController.animateToPage(state.currentStoryIndex,
+                      duration: const Duration(
+                          milliseconds: AppConstants.storyTransitionDelayMs),
+                      curve: Curves.easeIn);
 
-        key: const Key('store_screen'),
-        onDismissed: (_) => Navigator.of(context).pop(),
-        child: Container(
-          decoration: const BoxDecoration(gradient: ColorManager.storyGradient),
-          child: Scaffold(
-            backgroundColor: Colors.transparent,
-            body: BlocListener<StoryBloc, StoryState>(
-              listener: (context, state) {
-                if (state is StoryLoaded) {
-                  if (state.transitionRequired)
-                    _pageController.jumpToPage(state.currentStoryIndex);
-
-                  _pageController.animateToPage(state.currentStoryIndex,
-                        duration: const Duration(
-                            milliseconds: AppConstants.storyTransitionDelayMs),
-                        curve: Curves.easeIn);
-
-                  if (state.storiesEnded) Navigator.pop(context);
-                }
-              },
-              child: BlocSelector<StoryBloc, StoryState, List<StoryMock>>(
-                selector: (state) => (state as StoryLoaded).stories,
-                builder: (context, state) {
-                  return Stack(
-                    children: [
-                      PageView.builder(
-                          controller: _pageController,
-                          itemCount: state.length,
-                          scrollDirection: Axis.horizontal,
-                          onPageChanged: (storyIndex) {
-                            context
-                                .read<StoryBloc>()
-                                .add(StoryOpened(storyIndex: storyIndex));
-                          },
-                          itemBuilder: (context, index) {
-                            if (index == currentPageValue.floor()) {
-                              return Transform(
-                                transform: Matrix4.identity()
-                                  ..rotateX(currentPageValue - index),
-                                child: StoryPage(
-                                  storyIndex: index,
-                                ),
-                              );
-                            } else if (index == currentPageValue.floor() + 1) {
-                              return Transform(
-                                transform: Matrix4.identity()
-                                  ..rotateX(currentPageValue - index),
-                                child: StoryPage(
-                                  storyIndex: index,
-                                ),
-                              );
-                            } else {
-
-                              return StoryPage(
+                if (state.storiesEnded) Navigator.pop(context);
+              }
+            },
+            child: BlocSelector<StoryBloc, StoryState, List<StoryMock>>(
+              selector: (state) => (state as StoryLoaded).stories,
+              builder: (context, state) {
+                return Stack(
+                  children: [
+                    PageView.builder(
+                        controller: _pageController,
+                        itemCount: state.length,
+                        scrollDirection: Axis.horizontal,
+                        onPageChanged: (storyIndex) {
+                          context
+                              .read<StoryBloc>()
+                              .add(StoryOpened(storyIndex: storyIndex));
+                        },
+                        itemBuilder: (context, index) {
+                          if (index == currentPageValue.floor()) {
+                            return Transform(
+                              transform: Matrix4.identity()
+                                ..rotateX(currentPageValue - index),
+                              child: StoryPage(
                                 storyIndex: index,
-                              );
-                            }
-                          }),
-                      Positioned(
-                          bottom: _moreDetailsPosition,
-                          right: 160.w,
-                          child: Opacity(
-                              opacity: _moreDetailsOpacity,
-                              child: const MoreDetailsWidget()))
-                    ],
-                  );
-                },
-              ),
+                              ),
+                            );
+                          } else if (index == currentPageValue.floor() + 1) {
+                            return Transform(
+                              transform: Matrix4.identity()
+                                ..rotateX(currentPageValue - index),
+                              child: StoryPage(
+                                storyIndex: index,
+                              ),
+                            );
+                          } else {
+
+                            return StoryPage(
+                              storyIndex: index,
+                            );
+                          }
+                        }),
+                    Positioned(
+                        bottom: _moreDetailsPosition,
+                        right: 160.w,
+                        child: Opacity(
+                            opacity: _moreDetailsOpacity,
+                            child: const MoreDetailsWidget()))
+                  ],
+                );
+              },
             ),
           ),
         ),
