@@ -98,10 +98,10 @@ ThemeData getApplicationTheme() {
         titleSmall: getRegularStyle(color: ColorManager.grey,fontSize: FontSize.s10),
 
 
+
         bodyLarge: getMediumStyle(color: ColorManager.black, fontSize: FontSize.s18),
       bodyMedium: getMediumStyle(color: ColorManager.black, fontSize: FontSize.s16),
       bodySmall: getLightStyle(color:  ColorManager.black,),
-
 
     ),
 
@@ -111,9 +111,8 @@ ThemeData getApplicationTheme() {
       hintStyle: getMediumStyle(color: ColorManager.hintColor,fontSize:FontSize.s18),
         filled: true,
         fillColor: ColorManager.white,
-        contentPadding: EdgeInsets.all(AppPadding.p12),
+        contentPadding: const EdgeInsets.all(AppPadding.p12),
         focusedBorder:OutlineInputBorder(
-      
 
           borderSide: BorderSide(
             color: ColorManager.white,

@@ -26,6 +26,8 @@ class ImageAssets{
   static const String rightArrowIcon  = '$_imageBase/right_arrow_icon.svg';
   static const String hollowCircleIcon  = '$_imageBase/hollow_circle_icon.svg';
   static const String solidCircleIcon  = '$_imageBase/solid_circle_icon.svg';
+  static const String pictureIcon  = '$_imageBase/picture_icon.svg';
+  static const String voiceRecordIcon  = '$_imageBase/voice_record_icon.svg';
 
 
   static const String drawerIcon = '$_imageBase/drawer_icon.svg';

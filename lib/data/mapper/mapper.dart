@@ -7,7 +7,6 @@ extension CustomerResponseMapper on UserResponse? {
   toDomain() {
     return User(
         id: this?.id.orEmpty() ?? '',
-        numberOfNotifications: this?.numberOfNotifications.orZero() ?? 0,
         name: this?.name.orEmpty() ?? '');
   }
 }

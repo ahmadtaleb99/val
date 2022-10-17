@@ -20,20 +20,18 @@ class SliderPageViewObject {
 class User extends Equatable{
   final String id;
 
-    final  int numberOfNotifications;
 
   final String name;
 
  const  User({
     required this.id,
-    required this.numberOfNotifications,
     required this.name,
   });
 
-  static const   User  empty =   User(id: '',numberOfNotifications: 0,name: '');
+  static const   User  empty =   User(id: '',name: '');
 
   @override
-  List<Object?> get props => [id,name,numberOfNotifications];
+  List<Object?> get props => [id,name];
 
 }
 

@@ -6,17 +6,19 @@ class CustomChip extends StatelessWidget {
   final String text;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(vertical : AppPadding.p4,horizontal: AppPadding.p10),
-      decoration: BoxDecoration(
-        color: ColorManager.chipColor,
-        border: Border.all(
-          width: 1,
-          color: ColorManager.primary
+    return Center(
+      child: Container(
+        padding: EdgeInsets.symmetric(vertical : AppPadding.p4,horizontal: AppPadding.p10),
+        decoration: BoxDecoration(
+          color: ColorManager.chipColor,
+          border: Border.all(
+            width: 1,
+            color: ColorManager.primary
+          ),
+          borderRadius: BorderRadius.circular(AppRadius.r30)
         ),
-        borderRadius: BorderRadius.circular(AppRadius.r30)
+        child: Text(text),
       ),
-      child: Text(text),
     );
   }
 

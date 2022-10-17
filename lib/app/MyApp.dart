@@ -10,6 +10,7 @@ import 'package:val/app/dependency_injection.dart';
 
 import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
+import 'package:val/presentation/chat/bloc/chat_bloc.dart';
 import 'package:val/presentation/resources/routes_manager.dart';
 import 'package:val/presentation/resources/theme_manager.dart';
 import 'package:val/presentation/welcome_screen/view/welcome_screen.dart';
@@ -42,10 +43,17 @@ class _MyAppState extends State<MyApp> {
     return ScreenUtilInit(
         designSize: const Size(427, 927),
         builder: (context, child) {
-          return BlocProvider(
-            create: (context) {
-              return registerAuthBloc();
-            },
+          return MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) {
+                  return registerAuthBloc();
+                },
+              ),
+              BlocProvider(
+                create: (context) => ChatBloc()..add(ChatMessagesRequested()),
+              ),
+            ],
             child: MaterialApp(
               navigatorKey: _navigatorKey,
 

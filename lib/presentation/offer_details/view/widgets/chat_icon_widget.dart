@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:val/presentation/common/chat/view/chat_bottom_sheet.dart';
+import 'package:val/presentation/chat/view/chat_bottom_sheet.dart';
 import 'package:val/presentation/resources/assets_manager.dart';
 import 'package:val/presentation/resources/color_manager.dart';
 import 'package:val/presentation/resources/values_manager.dart';

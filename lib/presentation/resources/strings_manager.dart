@@ -10,6 +10,7 @@ class AppStrings{
   static const String permissionRevoked ='Permission Revoked';
   static const String revoked ='Revoked';
   static const String summery ='Summery';
+  static const String send ='Send';
   static const String typeAMessage ='Type A Message';
   static const String myInterests ='My Interests';
   static const String specialOffer ='Special Offer';
